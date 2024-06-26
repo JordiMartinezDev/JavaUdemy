@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -38,4 +39,10 @@ public class UserController {
     public List<Product> getProducts(@PathVariable(value="userId") int id){
         return Arrays.asList(new Product(0, "Shoes", 42.99),new Product(1, "Coat", 12.99),new Product(2, "Jacket", 82.99),new Product(3, "Cap", 22.99));
     }
+    @PostMapping("/create")
+    public String processFormData(String dataToBeInserted){
+        // Do something with the String provided, like insert it into a DB
+        return "Processed";
+    }
+
 }
